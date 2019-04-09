@@ -1,0 +1,19 @@
+jdbc:
+  driver: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/springboot?characterEncoding=utf-8
+  username: root
+  password: root
+  arrayPros: 1,2,3,4  #����
+  listPros:    #list
+    - listvalue1
+    - listvalue2
+  mapPros:  #map
+    mapkey1: mapvalue1
+    mapkey2: mapvalue2
+
+  listMapPros:
+    - list_map1_key1: list_map1_value1
+      list_map1_key2: list_map1_value2
+    - list_map2_key1: list_map2_value1
+      list_map2_key2: list_map2_value2
+

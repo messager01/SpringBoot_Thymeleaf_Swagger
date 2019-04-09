@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .red{
+            color:red;
+            font_size:50px;
+        }
+    </style>
+</head>
+<body>
+   <!-- <h1 th:text="${name}">HELLO!!</h1>
+
+    <h1 th:text="${hero.username}">HELLO!!</h1>
+
+<div th:object="${hero}">
+    <p th:text="*{username}"></p>
+    <p th:text="*{phone}"></p>
+    <p th:text="*{id}"></p>
+    <p th:text="${hero.id}"></p>
+</div>
+
+<a th:href="@{http://www.baidu.com}">连接</a>
+
+<img th:src="@{/logo.png}">
+
+    <a th:href="@{/hello(id=1,action='spx')}">跳转传参</a>-->
+
+<!--<h1 th:text="${hero.username}"></h1>
+   <h1 th:text="${'hello'+' '+hero.username}"></h1>
+   <h1 th:text="${50+hero.phone}"></h1>
+   <h1 th:text="${true==false}"></h1>     &lt;!&ndash;  true==false    false&ndash;&gt;
+   <h1 th:text="'hello'+${hero.username}"/>
+    <h1 th:text="|hello${hero.phone}|"></h1>-->
+
+<!--<h1 th:text="1+7"></h1>
+
+<h1 th:text="(17%5)+2"></h1>
+
+   <h1 th:text="2 eq 2"></h1>
+
+   <h1 th:text="3 lt 2 ? 10:20"></h1>-->
+
+<!--默认表达式
+    如果前面值为空   就显示后面的值
+    否则就显示本身
+-->
+
+<!--<h1 th:text="${hero.username}?:'我是空值'"></h1>-->
+
+   <!--内联写法-->
+<!--[[${name}]]-->   <!--原样输出-->
+
+ <!--  [(${name})]-->      <!--对内部标签进行解析-->
+
+
+<!--   &lt;!&ndash;局部变量&ndash;&gt;
+<div th:with="heroN = ${allHero[1]}">
+    <h1 th:text="${heroN.username}"></h1>
+    <h1 th:text="${heroN.phone}"></h1>
+</div>-->
+
+
+<!--当条件满足时，才会显示标签-->
+<!--<h1 th:if="${true}">显示内容</h1>-->
+
+<!--与if相反   不满足条件   才会显示-->
+
+  <!-- <h1 th:unless="${1 gt 2}">显示内容</h1>-->
+
+<!--switch-->
+<!--<div th:switch="${hero.username}">
+    <p th:case="史沛鑫">史沛鑫</p>
+    <p th:case="谭凤霞">谭凤霞</p>
+    <p th:case="*">无姓名</p>
+</div>-->
+
+<!--迭代   将集合中的元素都拿出来-->
+<!--<div>
+    <p th:each="HeroItem:${allHero}">
+        <span th:text="${HeroItem.username}"></span>
+        <span th:text="${HeroItem.phone}"></span>
+    </p>
+</div>-->
+<!--
+<hr/>
+   <div>
+       <p th:each="HeroItem,stat:${allHero}">
+           <span th:text="${HeroItem.username}+' '+${stat.index}"></span>  &lt;!&ndash;  index   当前遍历的角标  从0开始&ndash;&gt;
+           <span th:text="${HeroItem.username}+' '+${stat.count}"></span>  &lt;!&ndash;  count   当前遍历到第几个  从1开始&ndash;&gt;
+           <span th:text="${stat.size}"></span>   &lt;!&ndash;元素的总数&ndash;&gt;
+           <span th:text="${stat.first}"></span>   &lt;!&ndash;判断当前是否是第一个   是的话返回true&ndash;&gt;
+           <span th:text="${stat.last}"></span>   &lt;!&ndash;判断当前是否是最后一个   是的话返回true&ndash;&gt;
+           <span th:text="${stat.even}"></span>   &lt;!&ndash;判断当前是否是偶数行   是的话返回true&ndash;&gt;
+           <span th:text="${stat.odd}"></span>   &lt;!&ndash;判断当前是否是奇数行   是的话返回true&ndash;&gt;
+           <span th:text="${stat.current}"></span>   &lt;!&ndash;取出当前遍历出的对象信息&ndash;&gt;
+       </p>
+   </div>
+-->
+
+<!--<p th:text="${#request.getAttribute('name')}"></p>-->
+
+   <!--<div>
+       <p th:each="HeroItem:${allHero}">
+           <span th:text="${HeroItem.username}"></span>
+           <span th:text="${HeroItem.phone}"></span>
+           <span th:text="${#dates.format(HeroItem.onlinetime,'yyyy-MM-dd ')}"></span>
+       </p>
+   </div>-->
+
+   <!--显示前多少个字母，
+                                               后面以...结束  默认从3开始  最小为3  3是显示0个
+                                               即 shipeixin    显示  sh...
+                                                     -->
+
+<!--<p th:text="${#strings.toUpperCase(name)}"></p>
+
+   <p th:text="${#strings.abbreviate(name,4)}"></p> -->
+
+
+   <!--将公共标签及内容插入到指定标签当中-->
+   <div th:insert="~{base::header}"></div>
+
+    <h1>中部</h1>
+
+   <!--将公共的标签替换指定的标签-->
+    <div th:replace="~{base::#footer}"></div>
+
+    <!--  include  将公共标签的内容  包含到指定标签当中-->
+   <div th:include="~{base::#footer(active='footer')}"></div>
+
+
+<script th:inline="javascript">
+
+    var username = /*[[${name}]]*/ "shipeixin";     <!--如果  域中存在name则使用，如果不存在，则使用后面的字符串-->
+    console.log(username);
+
+</script>
+
+
+</body>
+</html>
