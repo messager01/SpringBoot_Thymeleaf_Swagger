@@ -7,6 +7,8 @@
     <groupId>com.itlike</groupId>
     <artifactId>03SpringBootSSMPro</artifactId>
     <version>1.0</version>
+    <!--打包-->
+    <packaging>jar</packaging>
 
 
     <parent>
@@ -72,8 +74,37 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
+            <!--缓存-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper-spring-boot-starter -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.10</version>
+        </dependency>
+
+
 
     </dependencies>
+
+
+    <!--打包配置-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.itlike.Application</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 
 
 </project>

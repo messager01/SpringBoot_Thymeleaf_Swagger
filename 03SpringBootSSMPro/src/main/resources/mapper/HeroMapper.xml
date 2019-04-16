@@ -2,7 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.itlike.mapper.HeroMapper">
 
+
     <select id="getAllHero" resultType="com.itlike.pojo.Hero">
         select * from `tb_hero`
     </select>
+
+
+
+    <update id="update">
+        update `tb_hero` set username=#{name} where id = #{id}
+    </update>
 </mapper>

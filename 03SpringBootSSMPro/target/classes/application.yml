@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 80
 
 spring :
   mvc:
@@ -21,6 +21,12 @@ logging:
     com.itlike: debug
   path: "E:/test/test.log"
 
+
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.itlike.pojo       #配置别名
+
+
+name: 谭噜
+
+

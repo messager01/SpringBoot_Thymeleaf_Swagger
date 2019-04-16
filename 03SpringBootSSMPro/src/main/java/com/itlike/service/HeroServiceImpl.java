@@ -14,9 +14,26 @@ public class HeroServiceImpl implements HeroService {
 
     @Override
     public List<Hero> getAllHero() {
+        return heroMapper.getAllHero();
+    }
+
+    @Override
+    public Hero getHeroById(Integer id) {
+        return heroMapper.getAHeroById(id);
+    }
+
+    @Override
+    public void updateHero(Integer id, String name) {
+        heroMapper.update(id,name);
+    }
+
+    /* @Override
+   *//* public List<Hero> getAllHero() {
         List<Hero> allHero = heroMapper.getAllHero();
         List<Hero> heroes = heroMapper.selectAll();
         //System.out.println(heroes);
         return allHero;
-    }
+    }*/
+
+
 }
